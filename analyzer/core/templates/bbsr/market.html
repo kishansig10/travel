@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+
+<html>
+<head>
+  
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+<script>
+
+/*Market Analysis Main graph function*/
+window.onload = function () {
+
+var chart1 = new CanvasJS.Chart("MainGraph", {
+    animationEnabled: true,
+
+    title:{
+      
+    },
+    axisX:{
+        interval: 1
+    },
+    axisY2:{
+        interlacedColor: "rgba(1,77,101,.2)",
+        gridColor: "rgba(1,77,101,.1)",
+        title: "Ratings out of 5"
+    },
+    data: [{
+        type: "bar",
+        name: "companies",
+        axisYType: "secondary",
+        color: "#014D65",
+        dataPoints: [
+            { y: 4.2, label: "The Pal Heights" },
+            { y: 3.5, label: "Orrisa State Handloom" },
+            { y: 3.9, label: "Orissa Mordern Art Gallery" },
+            { y: 4.1, label: "Station Square" },
+            { y: 3.9, label: "Saree Mandir" },
+            { y: 4.2, label: "Ekmara Hart" },
+            { y: 4.3, label: "Big Bazar" },
+            { y: 4.6, label: "Esplanade" },
+            { y: 4.2, label: "INOX" },
+            { y: 4.2, label: "BMC Keshari Mall" },
+            { y: 4.3, label: "Reliance Trends" },
+            { y: 4.3, label: "Market Building" },
+            { y: 4.5, label: "Soumya Handicraft" },
+            { y: 4.3, label: "Utkalika" }
+        ]
+    }]
+});
+/*Clothing graph function*/
+var chart2 = new CanvasJS.Chart("clothing", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+        text: "Clothing"
+    },
+    axisY:{
+        title: "Ratings",
+        includeZero: false
+    },
+    axisX:{
+        title: "Market Name"
+    },
+    data: [{
+        type: "line",
+        dataPoints: [
+            { y: 4.3, label: "Market Building" },
+            { y: 4.3, label: "Reliance Trends"},
+            { y: 4.6, label: "Esplanade", indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+            { y: 4.2, label: "BMC Keshari Mall" },
+            { y: 4.3, label: "Big Bazar" },
+            { y: 3.9, label: "Saree Mandir", indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+            { y: 4.2, label: "The Pal Heights" }
+        ]
+    }]
+});
+/*cineme graph function*/
+var chart3 = new CanvasJS.Chart("cinema", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+        text: "Cinema"
+    },
+    axisY:{
+        title: "Ratings",
+        includeZero: false
+    },
+    axisX:{
+        title: "Venue"
+    },
+    data: [{
+        type: "line",
+        dataPoints: [
+            { y: 4.2, label: "BMC Keshari Mall" },
+            { y: 4.2, label: "INOX" },
+            { y: 4.6, label: "Esplanade" }
+        ]
+    }]
+});
+
+/*malls graph function*/
+
+var chart4 = new CanvasJS.Chart("malls", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+        text: "Malls"
+    },
+    axisY:{
+        title: "Ratings",
+        includeZero: false
+    },
+    axisX:{
+        title: "Venue"
+    },
+    data: [{
+        type: "line",
+        dataPoints: [
+            { y: 4.3, label: "Market Building" },
+            { y: 4.3, label: "Reliance Trends" },
+            { y: 4.2, label: "BMC Keshari Mall" },
+            { y: 4.2, label: "INOX" },
+            { y: 4.6, label: "Esplanade" },
+            { y: 4.3, label: "Big Bazar" },
+            { y: 4.2, label: "The Pal Heights" }
+        ]
+    }]
+});
+
+/*odisha special graph function*/
+ 
+
+
+var chart5 = new CanvasJS.Chart("special", {
+    animationEnabled: true,
+    theme: "light2",
+    title:{
+        text: "Odisha Special Markets"
+    },
+    axisY:{
+        title: "Ratings",
+        includeZero: false
+    },
+    axisX:{
+        title: "Venue"
+    },
+    data: [{
+        type: "line",
+        dataPoints: [
+            { y: 4.3, label: "Utkalika" },
+            { y: 4.5, label: "Saumya Handicraft" },
+            { y: 4.2 , label: "Ekmara hart" },
+            { y: 3.9, label: "Saree Mandir" },
+            { y: 4.1, label: "Station Square" },
+            { y: 3.9, label: "Orissa Modern Art Gallery" },
+            { y: 3.5, label: "Orissa State Handloom" }
+        ]
+      }]
+    });
+
+
+
+chart1.render()
+chart2.render()
+chart3.render()
+chart4.render()
+chart5.render();
+}
+</script>
+
+
+</head>
+
+<!-- NAVBAR -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href={% url 'core:index' %}>Home</a></li>
+    <li class="breadcrumb-item"><a href={% url 'core:bbsr' %}>Bhubaneshwar</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Market</li>
+  </ol>
+</nav>
+
+<body>
+        <div style="margin-top: 40px;" class="graph-heading">
+            <h3 style="margin-bottom:0;" class="text-underline-primary mb-5 text-center display-4"> Bhubaneshwar Market Analysis</h3>
+            <hr style="width:30%; margin-top:2px; height:40px; border-top: 4px double #8c8b8b;
+            text-align: center;">
+        </div>
+       
+
+<div class="container-">
+  <!-- Main graph -->
+  <div id="MainGraph" style="height: 370px; width: 70%;  margin-bottom: 10px;"></div>
+    
+</div>
+
+<div style="margin-top:40px;" class="graph-section  ">
+ 
+<div class="container-fluid mb-5">
+
+    <div class="row mb-4 m-4">
+
+        <div class="col-md-6 mb-md-0 mb-sm-4 mt-5">
+  <!-- Clothing -->
+  <div id="clothing" style="height: 300px; width: 70%;  ">
+<p class="lead">https://docs.google.com/forms/d/e/1FAIpQLSd9JvHnPZsDcFA_w1Zbz6RxEu6Z127FKIGseSuUFwtwn1PN4g/viewform</p>
+</div>
+            </div>
+
+  <!-- Cinema -->
+  <div class="col-md-6 mb-sm-4 mt-5">
+  <div id="cinema" style="height: 300px; width: 70%; "></div>
+    </div>
+   
+  <!-- Malls -->
+  <div class="col-md-6  mb-sm-4 mt-5">
+  <div id="malls" style="height: 300px; width: 70%;  "></div>
+    </div>
+
+  <!-- odisha special -->
+  <div class="col-md-6  mb-sm-4 mt-5">
+  <div id="special" style="height: 300px; width: 70%; "></div>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+<!-- Table -->
+<table style="padding:10px;" class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Market Name</th>
+      <th scope="col">Ratings</th>
+      <th scope="col">Address</th>
+      <th scope="col">Famous For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Market building</td>
+      <td>4.3</td>
+      <td>Bhubaneshwar Marg, Unit-2, Ashok Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Reliance Trends</td>
+      <td>4.3</td>
+      <td>First Floor,Khata No.444, Kharabela Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Esplanade</td>
+      <td>4.6</td>
+      <td>Puri-Cuttak Rd, Rasulgarh Industrial Estate</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>BMC Keshari</td>
+      <td>4.2</td>
+      <td>2nd St, Unit-2, Ashok Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Big Bazar</td>
+      <td>4.3</td>
+      <td>Forum Mart, 89, Unit 3, Kharabela Nagar</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Saree Mandir</td>
+      <td>3.9</td>
+      <td>Master Canteen Area, Kharabela Nagar, Bhubaneswar</td>
+      <td>Sarees</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Pal Heights</td>
+      <td>4.2</td>
+      <td>Nandankanan Rd, j-7,Jayadev Vihar</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+
+  </tbody>
+</table>
+<!-- End table -->
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

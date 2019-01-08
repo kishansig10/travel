@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script>
+
+/*Market Analysis Main graph function*/
+window.onload = function () {
+
+var chart1 = new CanvasJS.Chart("MainGraph", {
+    animationEnabled: true,
+
+    title:{
+        text:"Agra Market Analysis"
+    },
+    axisX:{
+        interval: 1
+    },
+    axisY2:{
+        interlacedColor: "rgba(1,77,101,.2)",
+        gridColor: "rgba(1,77,101,.1)",
+        title: "Ratings out of 5"
+    },
+    data: [{
+        type: "bar",
+        name: "companies",
+        axisYType: "secondary",
+        color: "#014D65",
+        dataPoints: [
+{ y: 4.0, label: "Agra Art Gallery" },
+{ y: 4.0, label: "Shahin Arts" },
+{ y: 3.5, label: "Sadar Bazaar" },
+{ y: 4.0, label: "Kinari Bazaar" },
+{ y: 5.0, label: "Shilpgram" },
+{ y: 3.7, label: "Saket Mall" },
+{ y: 4.6, label: "The Warehouse of Gifts and Souvenirs" },
+{ y: 3.4, label: "Kashmiri Bazar" },
+{ y: 4.5 , label: "Marble Handicrafts" },
+{ y: 4.7, label: "kailash Plaza" },
+{ y: 3.8, label: "Gems and Arts Gallery" },
+{ y: 4.0, label: "Mughal Carpet" },
+{ y: 4.0, label: "Big Bazaar Ratan Mall" },
+{ y: 4.1, label: "Subhash Emporium" }
+]
+    }]
+});
+
+
+chart1.render();
+}
+</script>
+
+
+</head>
+
+<!-- NAVBAR -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href={% url 'core:index' %}>Home</a></li>
+    <li class="breadcrumb-item"><a href={% url 'core:agra' %}>Agra</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Market</li>
+  </ol>
+</nav>
+
+<body>
+<div class="container">
+  <!-- Main graph -->
+  <div id="MainGraph" style="height: 370px; width: 70%;"></div>
+</div>
+
+
+<!-- Table -->
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Market Name</th>
+      <th scope="col">Ratings</th>
+      <th scope="col">Address</th>
+      <th scope="col">Famous For</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Market building</td>
+      <td>4.3</td>
+      <td>Bhubaneshwar Marg, Unit-2, Ashok Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Reliance Trends</td>
+      <td>4.3</td>
+      <td>First Floor,Khata No.444, Kharabela Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Esplanade</td>
+      <td>4.6</td>
+      <td>Puri-Cuttak Rd, Rasulgarh Industrial Estate</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>BMC Keshari</td>
+      <td>4.2</td>
+      <td>2nd St, Unit-2, Ashok Nagar</td>
+      <td>Fashion wears, Accessories, Footwear</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Big Bazar</td>
+      <td>4.3</td>
+      <td>Forum Mart, 89, Unit 3, Kharabela Nagar</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Saree Mandir</td>
+      <td>3.9</td>
+      <td>Master Canteen Area, Kharabela Nagar, Bhubaneswar</td>
+      <td>Sarees</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Pal Heights</td>
+      <td>4.2</td>
+      <td>Nandankanan Rd, j-7,Jayadev Vihar</td>
+      <td>Fashion wears, Accessories, Footwear, Food</td>
+    </tr>
+
+  </tbody>
+</table> -->
+<!-- End table -->
+
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
