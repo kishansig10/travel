@@ -4,6 +4,31 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+            .write-ups{
+                transform: scale(1.05);
+                color: white;
+                background-color: rgba(7, 7, 59, 0.897);
+                transition: 0.5s ease-in;
+                box-shadow:2px 8px 3px black;
+                width:70%; 
+                border:1px solid rgb(29, 26, 26);
+                padding:10px;
+                transition: 0.3s linear;
+                justify-content: center;
+                margin-left: 150px;
+                margin-bottom:90px;
+                cursor: crosshair; 
+            }
+            .write-ups:hover{
+                transform: scale(1.09);
+                transition-delay: 0.2s;
+               
+                box-shadow: 2px 10px 7px black;
+    
+            }
+        </style>
+    
 <script>
 
 /*Market Analysis Main graph function*/
@@ -24,6 +49,7 @@ var chart1 = new CanvasJS.Chart("north", {
     },
     data: [{
         type: "line",
+        color: "#6B8E23",
         dataPoints: [
 { y: 3.9, label: "Jahanpanah" },
 { y: 4.2, label: "Pinch Of Spice" },
@@ -56,6 +82,7 @@ var chart2 = new CanvasJS.Chart("chinese", {
     },
     data: [{
         type: "line",
+        color: "#BA55D3",
         dataPoints: [
 { y: 4.2, label: "Pinch Of Spice" },
 { y: 3.9, label: "The Latitude - Radisson Blu" },
@@ -84,6 +111,7 @@ var chart3 = new CanvasJS.Chart("continental", {
     },
     data: [{
         type: "line",
+        color: "#008B8B",
         dataPoints: [
 { y: 3.9, label: "The Latitude - Radisson Blu" },
 { y: 3.4, label: "The Charcoal Chimney" },
@@ -111,6 +139,7 @@ var chart4 = new CanvasJS.Chart("italian", {
     },
     data: [{
         type: "line",
+        color: "#FF1493",
         dataPoints: [
 { y: 3.9, label: "Chapter ! Cafe" },
 { y: 4.4, label: "Pizza Hut" },
@@ -137,6 +166,7 @@ var chart5 = new CanvasJS.Chart("mughlai", {
     },
     data: [{
         type: "line",
+        color: "#483D8B",
         dataPoints: [
 { y: 3.9, label: "Jahanpanah" },
 { y: 3.5, label: "Rangrezz Restaurant" },
@@ -169,6 +199,7 @@ var chart6 = new CanvasJS.Chart("cafe", {
     },
     data: [{
         type: "line",
+        color: "#6B8E23",
         dataPoints: [
 { y: 4.9, label: "Sheroes Hangout" },
 { y: 3.9, label: "Chapter 1 Cafe" }
@@ -195,12 +226,38 @@ var chart7 = new CanvasJS.Chart("rajasthani", {
     },
     data: [{
         type: "line",
+        color: "#BA55D3",
         dataPoints: [
 { y: 4.00, label: "Chokho Jeeman Marwari Jain Bhojanalya" },
 { y: 3.60, label: "G Thal" }
 ]
       }]
     });
+
+/*Average Cost Function*/
+var chart8 = new CanvasJS.Chart("averagecost", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title:{
+        text: "Average Cost for 2"
+    },
+    axisY: {
+        title: "INR"
+    },
+    data: [{
+        type: "column",
+        dataPoints: [
+{ y: 683.33, label: "Agra Cantt" },
+{ y: 700, label: "Civil Lines" },
+{ y: 2000, label: "Courtyard By Marriott Agra" },
+{ y: 2500, label: "ITC Mughal,Tajganj" },
+{ y: 800, label: "Khandari" },
+{ y: 1800, label: "Radisson Blu,Tajganj" },
+{ y: 550, label: "Rakabganj" },
+{ y: 737.5, label: "Tajganj" },
+]
+    }]
+});
 
 
 chart1.render()
@@ -209,7 +266,8 @@ chart3.render()
 chart4.render()
 chart5.render()
 chart6.render()
-chart7.render();
+chart7.render()
+chart8.render();
 }
 </script>
 
@@ -226,30 +284,49 @@ chart7.render();
 </nav>
 
 <body>
+
+        <div class="container">
+                <div  class="graph-heading">
+                        <h3 style="margin-bottom:0;" class="text-underline-primary mb-5 text-center display-3">AGRA FOOD ANALYSIS</h3>
+                        <hr style="width:30%; margin-top:2px; height:40px; border-top: 4px double #8c8b8b;
+                        text-align: center;">
+                    </div>
+        
+
 <div class="container">
   <!-- Main graph -->
   <!-- <div id="MainGraph" style="height: 370px; width: 70%;"></div> -->
 
+
+  <!-- Average Cost for 2 -->
+  <div id="averagecost" style="height: 370px; width: 100%;"></div>
+  <h4  class=" write-ups mb-5 ">The graph showing cost for food for 2 person in different locality, Rakabganjh is found to be comparatively cheapest with affordable restaurants and ITC Mughal,Tajganj to be expensive with expensive restaurants.</h4>
+
+ 
+
   <!-- North Indian -->
-  <div id="north" style="height: 300px; width: 100%;"></div>
+  <div id="north" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Chinese -->
-  <div id="chinese" style="height: 300px; width: 100%;"></div>
+  <div id="chinese" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Continental -->
-  <div id="continental" style="height: 300px; width: 100%;"></div>
+  <div id="continental" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Italian -->
-  <div id="italian" style="height: 300px; width: 100%;"></div>
+  <div id="italian" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Mughlai -->
-  <div id="mughlai" style="height: 300px; width: 100%;"></div>
+  <div id="mughlai" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Cafe -->
-  <div id="cafe" style="height: 300px; width: 100%;"></div>
+  <div id="cafe" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
 
   <!-- Rajasthani -->
-  <div id="rajasthani" style="height: 300px; width: 100%;"></div>
+  <div id="rajasthani" style="height: 300px; width: 100%; margin-bottom:60px;"></div>
+
+  
+
 
 </div>
 
